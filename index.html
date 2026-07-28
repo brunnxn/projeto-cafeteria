@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neko Café</title>
+  <meta name="description" content="Neko Café - Onde café de qualidade, doces artesanais e gatinhos resgatados se encontram. Venha tomar um café e adote um amigo!">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Cabeçalho Fixo -->
+  <header class="header">
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#inicio" class="logo" id="brandLogo">
+        <div class="logo-icon-circle">
+          <span class="cat-icon">🐱</span>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">Neko Café</span>
+          <span class="jp-subtext">猫カフェ</span>
+        </div>
+      </a>
+
+      <!-- Menu Hambúrguer (Mobile) -->
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menu de navegação">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Navigation Links -->
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li>
+            <a href="#inicio" class="nav-link active" data-tab="inicio">Início</a>
+          </li>
+          <li>
+            <a href="#cardapio" class="nav-link" data-tab="cardapio">Cardápio</a>
+          </li>
+          <li>
+            <a href="#gatos" class="nav-link" data-tab="gatos">Gatos para Adoção</a>
+          </li>
+          <li>
+            <a href="#sobre-contato" class="nav-link" data-tab="sobre-contato">Sobre & Contato</a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Action CTA Button -->
+      <div class="header-cta">
+        <button class="btn btn-pill-pink" id="btnAdoteHeader">
+          <span class="btn-icon">🐾</span> Adote um Gato
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Container de Notificação / Toast (Para abas em breve) -->
+  <div class="toast-notification" id="toast">
+    <span class="toast-icon">✨</span>
+    <span class="toast-message" id="toastMessage">Esta seção estará disponível em breve!</span>
+  </div>
+
+  <!-- Conteúdo Principal SPA -->
+  <main class="main-content">
+
+    <!-- GUIA 1: INÍCIO (HERO) -->
+    <section id="sec-inicio" class="tab-section active">
+      <!-- Partículas decorativas de fundo -->
+      <div class="decorative-confetti" aria-hidden="true">
+        <span class="sparkle sp-1">◆</span>
+        <span class="sparkle sp-2">✦</span>
+        <span class="sparkle sp-3">●</span>
+        <span class="sparkle sp-4">◆</span>
+        <span class="sparkle sp-5">✦</span>
+        <span class="sparkle sp-6">●</span>
+        <span class="sparkle sp-7">🐾</span>
+      </div>
+
+      <div class="hero-container">
+        <!-- Coluna Esquerda: Texto e Ações -->
+        <div class="hero-left">
+          <div class="jp-tag">
+            <span class="jp-text">ようこそ！</span>
+            <span class="pt-text">Bem-vindo</span>
+          </div>
+
+          <h1 class="hero-title">Neko Café</h1>
+
+          <h2 class="hero-subtitle">
+            Onde <span class="highlight-pink">café, gatos</span> e novos lares se encontram.
+          </h2>
+
+          <p class="hero-description">
+            Bons grãos, doces artesanais e gatinhos resgatados esperando por uma família. Venha tomar algo gostoso e, quem sabe, sair de coração — e casa — mais cheio.
+          </p>
+
+          <div class="hero-buttons">
+            <button class="btn btn-pink-solid" id="btnVerCardapioHero">
+              <span>☕</span> Ver Cardápio
+            </button>
+            <button class="btn btn-pink-outline" id="btnConhecaGatosHero">
+              <span>🐾</span> Conheça os Gatos
+            </button>
+          </div>
+
+          <!-- Badges estatísticas -->
+          <div class="hero-stats">
+            <div class="stat-badge">
+              <span class="stat-number">58</span>
+              <span class="stat-text">adoções concluídas</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-number">12</span>
+              <span class="stat-text">gatos disponíveis agora</span>
+            </div>
+            <div class="stat-badge">
+              <span class="stat-number">100%</span>
+              <span class="stat-text">resgatados das ruas</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Ilustração Maneki-Neko & Xícara -->
+        <div class="hero-right">
+          <div class="illustration-wrapper">
+            <!-- Glow de fundo -->
+            <div class="illustration-glow"></div>
+
+            <!-- Maneki-Neko SVG / CSS Art -->
+            <div class="maneki-neko-card">
+              <svg class="neko-svg" viewBox="0 0 240 260" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <!-- Sombras e Gradientes -->
+                  <filter id="soft-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                    <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#2b2019" flood-opacity="0.08"/>
+                  </filter>
+                  <linearGradient id="bodyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#ffffff"/>
+                    <stop offset="100%" stop-color="#fff5eb"/>
+                  </linearGradient>
+                  <linearGradient id="pinkEarGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#f8b6c8"/>
+                    <stop offset="100%" stop-color="#dd6f92"/>
+                  </linearGradient>
+                  <linearGradient id="bellGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#ffe600"/>
+                    <stop offset="100%" stop-color="#d4a300"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Sombra no chão -->
+                <ellipse cx="120" cy="245" rx="75" ry="12" fill="#2b2019" opacity="0.09"/>
+
+                <!-- Rabo abanando -->
+                <path class="neko-tail" d="M 175 190 Q 215 170 205 135 Q 195 110 180 130" fill="none" stroke="#f4dcc4" stroke-width="18" stroke-linecap="round"/>
+
+                <!-- Corpo Principal -->
+                <path d="M 60 140 C 50 220, 190 220, 180 140 C 180 100, 60 100, 60 140 Z" fill="url(#bodyGrad)" filter="url(#soft-shadow)"/>
+
+                <!-- Orelhas (Trás e Dentro) -->
+                <!-- Esquerda -->
+                <path d="M 65 85 L 42 35 L 95 65 Z" fill="#ffffff"/>
+                <path d="M 67 80 L 50 43 L 88 66 Z" fill="url(#pinkEarGrad)"/>
+                <!-- Direita -->
+                <path d="M 175 85 L 198 35 L 145 65 Z" fill="#ffffff"/>
+                <path d="M 173 80 L 190 43 L 152 66 Z" fill="url(#pinkEarGrad)"/>
+
+                <!-- Cabeça -->
+                <ellipse cx="120" cy="95" rx="65" ry="50" fill="url(#bodyGrad)"/>
+
+                <!-- Mancha cinza charmosa sobre o olho esquerdo -->
+                <path d="M 70 68 C 60 80, 75 110, 96 102 C 105 85, 88 60, 70 68 Z" fill="#8b8078" opacity="0.25"/>
+
+                <!-- Olhos (Piscando alegremente) -->
+                <path d="M 85 92 Q 95 82 105 92" fill="none" stroke="#2b2019" stroke-width="3.5" stroke-linecap="round"/>
+                <path d="M 135 92 Q 145 82 155 92" fill="none" stroke="#2b2019" stroke-width="3.5" stroke-linecap="round"/>
+
+                <!-- Nariz e Focinho -->
+                <polygon points="120,98 116,94 124,94" fill="#dd6f92"/>
+                <path d="M 120 98 Q 112 106 106 102" fill="none" stroke="#2b2019" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M 120 98 Q 128 106 134 102" fill="none" stroke="#2b2019" stroke-width="2.5" stroke-linecap="round"/>
+
+                <!-- Bochechas rosadas -->
+                <ellipse cx="80" cy="102" rx="10" ry="5" fill="#f8b6c8" opacity="0.6"/>
+                <ellipse cx="160" cy="102" rx="10" ry="5" fill="#f8b6c8" opacity="0.6"/>
+
+                <!-- Bigodes -->
+                <!-- Esquerda -->
+                <line x1="62" y1="95" x2="35" y2="92" stroke="#2b2019" stroke-width="2" stroke-linecap="round"/>
+                <line x1="64" y1="102" x2="38" y2="105" stroke="#2b2019" stroke-width="2" stroke-linecap="round"/>
+                <!-- Direita -->
+                <line x1="178" y1="95" x2="205" y2="92" stroke="#2b2019" stroke-width="2" stroke-linecap="round"/>
+                <line x1="176" y1="102" x2="202" y2="105" stroke="#2b2019" stroke-width="2" stroke-linecap="round"/>
+
+                <!-- Patinha acenando (Maneki-Neko Luck Wave) -->
+                <g class="waving-paw">
+                  <path d="M 68 140 C 50 120, 60 90, 80 95 C 92 100, 85 130, 78 145 Z" fill="#ffffff" filter="url(#soft-shadow)"/>
+                  <!-- Almofadinha da pata -->
+                  <ellipse cx="73" cy="104" rx="5" ry="4" fill="#f8b6c8"/>
+                </g>
+
+                <!-- Coleira e Sino -->
+                <path d="M 75 134 Q 120 148 165 134" fill="none" stroke="#dd6f92" stroke-width="8" stroke-linecap="round"/>
+                <circle cx="120" cy="144" r="9" fill="url(#bellGrad)"/>
+                <circle cx="120" cy="146" r="2.5" fill="#2b2019"/>
+              </svg>
+            </div>
+
+            <!-- Ilustração da Xícara de Café -->
+            <div class="coffee-cup-card">
+              <div class="steam-container">
+                <span class="steam s-1"></span>
+                <span class="steam s-2"></span>
+                <span class="steam s-3"></span>
+              </div>
+              <div class="cup-body">
+                <div class="cup-handle"></div>
+                <div class="cup-paw-print">🐾</div>
+              </div>
+              <div class="cup-saucer"></div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIA 2: CARDÁPIO -->
+    <section id="sec-cardapio" class="tab-section">
+      <div class="menu-container">
+        <!-- Coluna Esquerda: Texto e Box Destaque -->
+        <div class="menu-left">
+          <div class="jp-tag">
+            <span class="jp-icon">☕</span>
+            <span class="pt-text">Cardápio</span>
+          </div>
+
+          <h2 class="menu-title">Feito com amor, servido com calma.</h2>
+
+          <p class="menu-description">
+            Cafés, bebidas, doces e salgados pensados para acompanhar uma boa tarde ao lado dos nossos gatos.
+          </p>
+
+          <!-- Box de Destaque Marrom Escuro -->
+          <div class="menu-feature-box">
+            <div class="feature-box-content">
+              <span class="feature-quote">"Experimente o Latte Neko!"</span>
+              <span class="feature-icon">🐾</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coluna Direita: Card com Sub-abas e Lista de Produtos -->
+        <div class="menu-right">
+          <div class="menu-card">
+            
+            <!-- Sub-abas (Tabs internas) -->
+            <div class="subtabs-header">
+              <button class="subtab-btn active" data-category="cafes">Cafés</button>
+              <button class="subtab-btn" data-category="bebidas">Bebidas</button>
+              <button class="subtab-btn" data-category="doces">Doces</button>
+              <button class="subtab-btn" data-category="salgados">Salgados</button>
+              <button class="subtab-btn" data-category="combos">Combos</button>
+            </div>
+
+            <!-- Conteúdo da lista de produtos -->
+            <div class="subtabs-content">
+              <ul class="menu-item-list" id="menuItemList">
+                <!-- Preenchido dinamicamente via JS -->
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUIA PLACEHOLDER (Para abas Sobre, Gatos, Contato quando ativadas) -->
+    <section id="sec-placeholder" class="tab-section">
+      <div class="placeholder-container">
+        <div class="placeholder-card">
+          <span class="placeholder-icon">🐾</span>
+          <h2 class="placeholder-title" id="placeholderTitle">Seção em Construção</h2>
+          <p class="placeholder-text" id="placeholderText">
+            Estamos preparando novidades incríveis para você e nossos gatinhos. Volte em breve!
+          </p>
+          <button class="btn btn-pink-solid" id="btnVoltarInicio">
+            ☕ Voltar para o Início
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé Simples -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="cat-icon">🐱</span>
+        <span class="brand-name">Neko Café</span>
+        <span class="jp-subtext">猫カフェ</span>
+      </div>
+      <p class="footer-copyright">
+        © 2026 Neko Café. Todos os direitos reservados. Feito com amor e carinho por gatos.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
