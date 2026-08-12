@@ -284,6 +284,187 @@
       </div>
     </section>
 
+     <section id="sec-gatos" class="tab-section">
+      <div class="gatos-container">
+
+        <div class="gatos-header">
+          <div class="jp-tag">
+            <span class="jp-icon">🐾</span>
+            <span class="pt-text">Adoção</span>
+          </div>
+          <h2 class="gatos-title">Encontre seu novo melhor amigo</h2>
+          <p class="gatos-descricao">
+            Todos os nossos gatinhos foram resgatados das ruas e estão prontos para encher
+            seu lar de ronronados. Conheça cada um deles e, quem sabe, leve um amigo para casa!
+          </p>
+        </div>
+
+        <div class="gatos-filtros">
+          <div class="busca-wrapper">
+            <span class="busca-icon">🔍</span>
+            <input
+              type="text"
+              id="gatoBusca"
+              class="busca-input"
+              placeholder="Buscar por nome..."
+              aria-label="Buscar gato pelo nome"
+            />
+          </div>
+
+          <div class="filtros-personalidade" id="filtrosPersonalidade">
+            <button class="filtro-btn active" data-filtro="todos" id="filtroTodos">Todos</button>
+            <button class="filtro-btn" data-filtro="Brincalhão" id="filtroBrencalhao">Brincalhão</button>
+            <button class="filtro-btn" data-filtro="Calmo" id="filtroCalmo">Calmo</button>
+            <button class="filtro-btn" data-filtro="Carinhoso" id="filtroCarinhoso">Carinhoso</button>
+            <button class="filtro-btn" data-filtro="Independente" id="filtroIndependente">Independente</button>
+            <button class="filtro-btn" data-filtro="Sociável" id="filtroSociavel">Sociável</button>
+            <button class="filtro-btn" data-filtro="Curioso" id="filtroCurioso">Curioso</button>
+          </div>
+        </div>
+
+        <div class="gatos-grid" id="gatosGrid"></div>
+
+        <p class="gatos-sem-resultado" id="gatosSemResultado" style="display: none;">
+          Nenhum gatinho encontrado com esse filtro. Tente outro! 🐱
+        </p>
+
+      </div>
+    </section>
+
+    <section id="sec-sobre" class="tab-section">
+      <div class="sobre-container">
+
+        <div class="sobre-header">
+          <div class="jp-tag">
+            <span class="jp-icon">🐱</span>
+            <span class="pt-text">Sobre Nós</span>
+          </div>
+          <h2 class="sobre-title">Conheça o Neko Café</h2>
+        </div>
+
+        <div class="sobre-grid">
+
+          <div class="sobre-coluna-esq">
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">O que é o Neko Café? ☕</h3>
+              <p class="sobre-card-texto">
+                O Neko Café é uma cafeteria temática que combina a experiência gastronômica ao
+                contato carinhoso com gatos resgatados. Em nosso espaço, você encontra cafés
+                especiais, doces artesanais e salgados frescos — tudo isso enquanto passa um
+                tempo de qualidade com os felinos que aguardam um novo lar.
+              </p>
+              <p class="sobre-card-texto">
+                O site foi desenvolvido como projeto avaliativo da disciplina de Tecnologias Web
+                (IFBA - Campus Paulo Afonso), por alunos de Ciência da Computação no semestre 2026.1.
+              </p>
+            </div>
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">Nossa Motivação 🌸</h3>
+              <p class="sobre-card-texto">
+                O projeto foi inspirado nos <em>cat cafés</em>, estabelecimentos populares no Japão
+                e em várias partes do mundo que unem gastronomia ao convívio com gatos. Além de
+                proporcionar um ambiente acolhedor, esses espaços ajudam a divulgar animais que
+                buscam um novo lar.
+              </p>
+              <p class="sobre-card-texto">
+                A proposta é usar a tecnologia para apresentar a cafeteria e incentivar a adoção
+                responsável, reunindo informações sobre produtos e animais em uma interface
+                simples, organizada e agradável.
+              </p>
+            </div>
+
+            <div class="menu-feature-box">
+              <div class="feature-box-content">
+                <span class="feature-quote">"Para quem ama gatos e bom café!"</span>
+                <span class="feature-icon">🐾</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="sobre-coluna-dir">
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">Nossos Objetivos 🎯</h3>
+              <p class="sobre-card-subtitulo">Objetivo Geral</p>
+              <p class="sobre-card-texto">
+                Desenvolver uma interface web para divulgação de uma cafeteria temática
+                voltada à adoção de gatos.
+              </p>
+              <p class="sobre-card-subtitulo">Objetivos Específicos</p>
+              <ul class="sobre-lista">
+                <li>📋 Apresentar o cardápio completo da cafeteria</li>
+                <li>🐱 Divulgar os gatos disponíveis para adoção</li>
+                <li>ℹ️ Fornecer informações sobre o estabelecimento</li>
+                <li>🧭 Criar uma experiência de navegação intuitiva</li>
+                <li>💻 Aplicar conceitos de front-end e design responsivo</li>
+              </ul>
+            </div>
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">Público-Alvo 👥</h3>
+              <div class="publico-tags">
+                <span class="publico-tag">😻 Amantes de gatos</span>
+                <span class="publico-tag">🏠 Interessados em adoção</span>
+                <span class="publico-tag">☕ Clientes da cafeteria</span>
+                <span class="publico-tag">🌸 Jovens e adultos</span>
+              </div>
+            </div>
+
+            <div class="sobre-card contato-card">
+              <h3 class="sobre-card-titulo">Fale Conosco 📬</h3>
+              <ul class="contato-lista">
+                <li class="contato-item">
+                  <span class="contato-icone">📍</span>
+                  <div>
+                    <strong>Endereço</strong>
+                    <span>Rua das Cerejeiras, 42 — Centro, Paulo Afonso - BA</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone">📧</span>
+                  <div>
+                    <strong>E-mail</strong>
+                    <span>contato@nekocafe.com.br</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone">📱</span>
+                  <div>
+                    <strong>WhatsApp</strong>
+                    <span>(75) 99999-0042</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone">🕐</span>
+                  <div>
+                    <strong>Horário</strong>
+                    <span>Terça a domingo, das 10h às 20h</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone">📷</span>
+                  <div>
+                    <strong>Instagram</strong>
+                    <span>@nekocafe.oficial</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="sobre-rodape">
+          <p>Criado com 💜 por <strong>Bruno Leandro Gama da Silva</strong> e <strong>Lorena Rachel Santos de Souza</strong></p>
+          <p class="sobre-rodape-sub">Ciência da Computação • IFBA - Campus Paulo Afonso • 2026.1</p>
+        </div>
+
+      </div>
+    </section>
+
     <!-- GUIA PLACEHOLDER (Para abas Sobre, Gatos, Contato quando ativadas) -->
     <section id="sec-placeholder" class="tab-section">
       <div class="placeholder-container">
@@ -299,6 +480,89 @@
         </div>
       </div>
     </section>
+
+    <div class="modal-overlay" id="modalAdocao" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <div class="modal-box">
+
+        <button class="modal-fechar" id="btnFecharModal" aria-label="Fechar modal">✕</button>
+
+        <div class="modal-cabecalho" id="modalCabecalho">
+          <div class="modal-gato-foto" id="modalGatoFoto">🐱</div>
+          <div>
+            <p class="modal-gato-label">Você quer adotar:</p>
+            <p class="modal-gato-nome" id="modalGatoNome">Nome do Gato</p>
+          </div>
+        </div>
+
+        <form class="modal-form" id="formAdocao" novalidate>
+          <div class="form-grupo">
+            <label class="form-label" for="inputNome">Nome completo *</label>
+            <input type="text" id="inputNome" class="form-input" placeholder="Seu nome completo" required />
+          </div>
+
+          <div class="form-grupo">
+            <label class="form-label" for="inputEmail">E-mail *</label>
+            <input type="email" id="inputEmail" class="form-input" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="form-linha-dupla">
+            <div class="form-grupo">
+              <label class="form-label" for="inputTelefone">Telefone / WhatsApp *</label>
+              <input type="tel" id="inputTelefone" class="form-input" placeholder="(00) 00000-0000" required />
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="inputCidade">Cidade - UF *</label>
+              <input type="text" id="inputCidade" class="form-input" placeholder="Ex: Paulo Afonso - BA" required />
+            </div>
+          </div>
+
+          <div class="form-linha-dupla">
+            <div class="form-grupo">
+              <label class="form-label" for="selectMoradia">Tipo de moradia *</label>
+              <select id="selectMoradia" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option value="casa-quintal">Casa com quintal</option>
+                <option value="casa-sem-quintal">Casa sem quintal</option>
+                <option value="apartamento">Apartamento</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="selectExperiencia">Já teve gatos antes? *</label>
+              <select id="selectExperiencia" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option value="sim-atual">Sim, tenho atualmente</option>
+                <option value="sim-tive">Sim, já tive</option>
+                <option value="nao">Não, será o primeiro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grupo">
+            <label class="form-label" for="textareaMotivo">Por que quer adotar este gatinho? (opcional)</label>
+            <textarea
+              id="textareaMotivo"
+              class="form-textarea"
+              placeholder="Conte um pouco sobre o motivo e como seria a rotina do gatinho na sua casa..."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-pink-solid" id="btnEnviarFormulario" style="width: 100%;">
+            🐾 Enviar interesse em adoção
+          </button>
+        </form>
+
+        <div class="modal-sucesso" id="modalSucesso" style="display: none;">
+          <span class="sucesso-emoji">🎉</span>
+          <h3 class="sucesso-titulo">Que alegria!</h3>
+          <p class="sucesso-texto" id="sucessoTexto"></p>
+          <p class="sucesso-subtext">Nossa equipe entrará em contato em breve para os próximos passos da adoção.</p>
+          <button class="btn btn-pink-solid" id="btnFecharSucesso">💜 Fechar</button>
+        </div>
+
+      </div>
+    </div>
 
   </main>
 

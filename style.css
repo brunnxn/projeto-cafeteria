@@ -995,3 +995,643 @@ button {
     font-size: 0.95rem;
   }
 }
+
+/* 12. GATOS PARA ADOÇÃO */
+
+/* Container principal da seção */
+.gatos-container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho com título e descrição */
+.gatos-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.gatos-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.gatos-descricao {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Área de busca e filtros */
+.gatos-filtros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 36px;
+}
+
+/* Campo de busca por nome */
+.busca-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+.busca-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  opacity: 0.5;
+}
+
+.busca-input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--card-bg);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  box-shadow: var(--card-shadow);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  outline: none;
+}
+
+.busca-input:focus {
+  border-color: var(--pink-primary);
+  box-shadow: 0 0 0 3px rgba(221, 111, 146, 0.12);
+}
+
+/* Botões de filtro de personalidade */
+.filtros-personalidade {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.filtro-btn {
+  padding: 8px 20px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.filtro-btn:hover {
+  border-color: var(--pink-primary);
+  color: var(--pink-primary);
+}
+
+.filtro-btn.active {
+  background-color: var(--pink-primary);
+  border-color: var(--pink-primary);
+  color: #ffffff;
+}
+
+/* Grade de cards dos gatos */
+.gatos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card individual do gato */
+.gato-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.gato-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(43, 32, 25, 0.1);
+}
+
+/* Área da foto/ícone do gato */
+.gato-foto-area {
+  background: linear-gradient(135deg, var(--pink-light), var(--bg-gradient-end));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  font-size: 4rem;
+  position: relative;
+  min-height: 220px;
+}
+
+.gato-foto {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  border-radius: 16px;
+}
+
+/* Badge de status (disponível) */
+.gato-status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #4caf50;
+  color: #ffffff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Corpo do card */
+.gato-card-body {
+  padding: 16px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.gato-nome {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.gato-idade {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Tags de personalidade do gato */
+.gato-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.gato-tag {
+  background-color: var(--pink-light);
+  color: var(--pink-primary);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(221, 111, 146, 0.25);
+}
+
+.gato-descricao-card {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+/* Botão de adoção dentro do card */
+.gato-btn-adotar {
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* Mensagem quando nenhum gato é encontrado */
+.gatos-sem-resultado {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  padding: 40px 0;
+}
+
+/* 13. MODAL DE ADOÇÃO */
+
+/* Fundo escurecido do modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(43, 32, 25, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-normal);
+}
+
+/* Quando o modal está visível */
+.modal-overlay.aberto {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Caixa do modal */
+.modal-box {
+  background-color: var(--card-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 24px 60px rgba(43, 32, 25, 0.2);
+  padding: 32px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+}
+
+.modal-overlay.aberto .modal-box {
+  transform: translateY(0);
+}
+
+/* Botão X para fechar o modal */
+.modal-fechar {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--pink-light);
+  color: var(--pink-primary);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast);
+}
+
+.modal-fechar:hover {
+  background-color: var(--pink-primary);
+  color: #ffffff;
+}
+
+/* Cabeçalho do modal com info do gato */
+.modal-cabecalho {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.modal-gato-foto {
+  width: 68px;
+  height: 68px;
+  background: linear-gradient(135deg, var(--pink-light), var(--bg-gradient-end));
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.modal-gato-foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-gato-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.modal-gato-nome {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--pink-primary);
+}
+
+/* Formulário de adoção */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Agrupamento de campo de formulário */
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Duas colunas lado a lado */
+.form-linha-dupla {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+/* Label do campo */
+.form-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* Input de texto */
+.form-input,
+.form-select,
+.form-textarea {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  background-color: #ffffff;
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  width: 100%;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--pink-primary);
+  box-shadow: 0 0 0 3px rgba(221, 111, 146, 0.12);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Mensagem de sucesso dentro do modal */
+.modal-sucesso {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 0;
+}
+
+.sucesso-emoji {
+  font-size: 3.5rem;
+}
+
+.sucesso-titulo {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.sucesso-texto {
+  font-size: 1rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.sucesso-subtext {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 380px;
+}
+
+/* 14. SOBRE NÓS & CONTATO */
+
+/* Container principal da seção */
+.sobre-container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+/* Cabeçalho com título */
+.sobre-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.sobre-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+}
+
+/* Grid de duas colunas */
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+/* Colunas esquerda e direita */
+.sobre-coluna-esq,
+.sobre-coluna-dir {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card de conteúdo genérico */
+.sobre-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  box-shadow: var(--card-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Título do card */
+.sobre-card-titulo {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+/* Sub-título dentro do card (ex: "Objetivo Geral") */
+.sobre-card-subtitulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--pink-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+/* Parágrafo de texto corrido */
+.sobre-card-texto {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* Lista de objetivos */
+.sobre-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-left: 4px;
+}
+
+.sobre-lista li {
+  font-size: 0.88rem;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* Tags de público-alvo */
+.publico-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.publico-tag {
+  background-color: var(--pink-light);
+  color: var(--pink-primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(221, 111, 146, 0.25);
+}
+
+/* Lista de contato */
+.contato-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contato-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.contato-icone {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contato-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.contato-item strong {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.contato-item span {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+/* Rodapé da seção "Criado por" */
+.sobre-rodape {
+  margin-top: 36px;
+  text-align: center;
+  padding: 20px 24px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--card-shadow);
+}
+
+.sobre-rodape p {
+  font-size: 0.92rem;
+  color: var(--text-dark);
+}
+
+.sobre-rodape-sub {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* 15. RESPONSIVIDADE DAS NOVAS SEÇÕES */
+
+@media (max-width: 1024px) {
+  .gatos-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .gatos-title,
+  .sobre-title {
+    font-size: 2.2rem;
+  }
+
+  .gatos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .sobre-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-linha-dupla {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-box {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gatos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gatos-title,
+  .sobre-title {
+    font-size: 1.8rem;
+  }
+
+  .filtros-personalidade {
+    gap: 8px;
+  }
+
+  .filtro-btn {
+    font-size: 0.82rem;
+    padding: 7px 14px;
+  }
+
+  .modal-overlay {
+    padding: 16px;
+  }
+}

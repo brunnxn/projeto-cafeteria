@@ -153,6 +153,65 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   };
 
+  const gatosData = [
+    {
+      nome: 'Zilu',
+      idade: '10 anos',
+      icone: './assets/img/zilu.jpeg',
+      tags: ['Brincalhão', 'Carinhoso', 'Sociável'],
+      descricao: 'Zilu é uma gatinha preto com branco cheia de energia! Adora brincar com bolinhas e fica feliz quando tem companhia por perto.'
+    },
+    {
+      nome: 'Malu',
+      idade: '4 anos',
+      icone: './assets/img/malu.jpeg',
+      tags: ['Calmo', 'Carinhoso', 'Independente'],
+      descricao: 'Malu é uma gatinha rajada e delicada. Ela gosta de lugares tranquilos, de cochilar no sol e de receber carinho com calma.'
+    },
+    {
+      nome: 'Lilo',
+      idade: '6 meses',
+      icone: './assets/img/lilo.jpeg',
+      tags: ['Brincalhão', 'Curioso', 'Sociável'],
+      descricao: 'Lilo é a mais novo do grupo e tem curiosidade por tudo! Bota o nariz em tudo e faz amizade com qualquer um rapidinho.'
+    },
+    {
+      nome: 'Pérola',
+      idade: '1 anos',
+      icone: './assets/img/perola.jpeg',
+      tags: ['Independente', 'Calmo', 'Curioso'],
+      descricao: 'Pérola é uma gatinha preta com olhos dourados, muito observadora. Prefere seu espaço, mas quando escolhe um dono, é para sempre.'
+    },
+    {
+      nome: 'Tito',
+      idade: '5 anos',
+      icone: './assets/img/tito.jpeg',
+      tags: ['Carinhoso', 'Calmo', 'Sociável'],
+      descricao: 'Tito é a mais experiente da turma. Ama ficar no colo, ronronar baixinho e é ótima companhia para quem vive sozinho.'
+    },
+    {
+      nome: 'Leon',
+      idade: '2 anos',
+      icone: './assets/img/leon.jpeg',
+      tags: ['Brincalhão', 'Curioso', 'Independente'],
+      descricao: 'Leon é uma gata tricolor muito esperta. Gosta de escalar prateleiras, explorar cantinhos e inventar moda pela casa toda.'
+    },
+    {
+      nome: 'Lilica',
+      idade: '3 anos',
+      icone: './assets/img/lilica.jpeg',
+      tags: ['Carinhoso', 'Sociável', 'Brincalhão'],
+      descricao: 'Lilica é uma gatinha que ama companhia. Se relaciona bem com crianças e outros animais, ideal para famílias.'
+    },
+    {
+      nome: 'Olaf',
+      idade: '4 anos',
+      icone: './assets/img/olaf.jpeg',
+      tags: ['Curioso', 'Brincalhão', 'Sociável'],
+      descricao: 'Olaf é fofo e está aprendendo tudo! Super ativo, afetivo e pronto para crescer com uma família cheia de amor.'
+    }
+  ];
+
   // 2. ELEMENTOS DOM
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.tab-section');
@@ -173,6 +232,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Placeholders
   const placeholderTitle = document.getElementById('placeholderTitle');
   const placeholderText = document.getElementById('placeholderText');
+
+  const gatosGrid = document.getElementById('gatosGrid');
+  const gatoBusca = document.getElementById('gatoBusca');
+  const filtroButtons = document.querySelectorAll('.filtro-btn');
+  const gatosSemResultado = document.getElementById('gatosSemResultado');
+
+  const modalAdocao = document.getElementById('modalAdocao');
+  const btnFecharModal = document.getElementById('btnFecharModal');
+  const modalGatoNome = document.getElementById('modalGatoNome');
+  const modalGatoFoto = document.getElementById('modalGatoFoto');
+  const formAdocao = document.getElementById('formAdocao');
+  const modalSucesso = document.getElementById('modalSucesso');
+  const sucessoTexto = document.getElementById('sucessoTexto');
+  const btnFecharSucesso = document.getElementById('btnFecharSucesso');
 
   // 3. TOAST NOTIFICATION UTILITY
   let toastTimeout;
@@ -221,10 +294,15 @@ document.addEventListener('DOMContentLoaded', () => {
     } else if (tabId === 'cardapio') {
       document.getElementById('sec-cardapio').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (tabId === 'gatos') {
+      document.getElementById('sec-gatos').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else if (tabId === 'sobre-contato') {
+      document.getElementById('sec-sobre').classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Seções não funcionais (Sobre, Gatos, Contato) -> mostrar seção placeholder com título personalizado
       const secPlaceholder = document.getElementById('sec-placeholder');
-      placeholderTitle.textContent = sectionTitles[tabId] || 'Seção em Construção';
+      placeholderTitle.textContent = sectionTitles[tabId] || 'Sessão em Construção';
       placeholderText.textContent = sectionDescriptions[tabId] || 'Esta funcionalidade estará disponível muito em breve!';
       secPlaceholder.classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -263,7 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
   if (btnAdoteHeader) {
     btnAdoteHeader.addEventListener('click', () => {
       switchTab('gatos');
-      showToast('🐾 A galeria de gatos para adoção estará disponível em breve!');
     });
   }
 
@@ -323,5 +400,135 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerBtn.classList.toggle('open');
     navMenu.classList.toggle('active');
   });
+
+  let filtroAtivo = 'todos';
+  let termoBusca = '';
+
+  function renderGatos() {
+    gatosGrid.innerHTML = '';
+
+    const gatosFiltrados = gatosData.filter(gato => {
+      const temPersonalidade = filtroAtivo === 'todos' || gato.tags.includes(filtroAtivo);
+      const temNome = gato.nome.toLowerCase().includes(termoBusca.toLowerCase());
+      return temPersonalidade && temNome;
+    });
+
+    if (gatosFiltrados.length === 0) {
+      gatosSemResultado.style.display = 'block';
+    } else {
+      gatosSemResultado.style.display = 'none';
+    }
+
+    gatosFiltrados.forEach(gato => {
+      const card = document.createElement('div');
+      card.className = 'gato-card';
+
+      const tagsHTML = gato.tags.map(tag => `<span class="gato-tag">${tag}</span>`).join('');
+
+      card.innerHTML = `
+        <div class="gato-foto-area">
+          <img src="${gato.icone}" alt="${gato.nome}" class="gato-foto">
+          <span class="gato-status-badge">Disponível</span>
+        </div>
+        <div class="gato-card-body">
+          <p class="gato-nome">${gato.nome}</p>
+          <p class="gato-idade">📅 ${gato.idade}</p>
+          <div class="gato-tags">${tagsHTML}</div>
+          <p class="gato-descricao-card">${gato.descricao}</p>
+          <button class="btn btn-pink-solid gato-btn-adotar" data-nome="${gato.nome}" data-icone="${gato.icone}">
+            🐾 Quero Adotar
+          </button>
+        </div>
+      `;
+
+      gatosGrid.appendChild(card);
+    });
+
+    const botoesAdotar = gatosGrid.querySelectorAll('.gato-btn-adotar');
+    botoesAdotar.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const nomeGato = btn.getAttribute('data-nome');
+        const iconeGato = btn.getAttribute('data-icone');
+        abrirModal(nomeGato, iconeGato);
+      });
+    });
+  }
+
+  renderGatos();
+
+  if (gatoBusca) {
+    gatoBusca.addEventListener('input', () => {
+      termoBusca = gatoBusca.value;
+      renderGatos();
+    });
+  }
+
+  filtroButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filtroButtons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filtroAtivo = btn.getAttribute('data-filtro');
+      renderGatos();
+    });
+  });
+
+  function abrirModal(nomeGato, iconeGato) {
+    modalGatoNome.textContent = nomeGato;
+    modalGatoFoto.innerHTML = `<img src="${iconeGato}" alt="${nomeGato}" />`;
+
+    formAdocao.style.display = 'flex';
+    modalSucesso.style.display = 'none';
+
+    formAdocao.reset();
+
+    modalAdocao.classList.add('aberto');
+    document.body.style.overflow = 'hidden'; 
+  }
+
+  function fecharModal() {
+    modalAdocao.classList.remove('aberto');
+    document.body.style.overflow = '';
+  }
+
+  if (btnFecharModal) {
+    btnFecharModal.addEventListener('click', fecharModal);
+  }
+
+  if (modalAdocao) {
+    modalAdocao.addEventListener('click', (e) => {
+      if (e.target === modalAdocao) {
+        fecharModal();
+      }
+    });
+  }
+
+  if (btnFecharSucesso) {
+    btnFecharSucesso.addEventListener('click', fecharModal);
+  }
+
+  if (formAdocao) {
+    formAdocao.addEventListener('submit', (e) => {
+      e.preventDefault(); 
+
+      const nome = document.getElementById('inputNome').value.trim();
+      const email = document.getElementById('inputEmail').value.trim();
+      const telefone = document.getElementById('inputTelefone').value.trim();
+      const cidade = document.getElementById('inputCidade').value.trim();
+      const moradia = document.getElementById('selectMoradia').value;
+      const experiencia = document.getElementById('selectExperiencia').value;
+
+      if (!nome || !email || !telefone || !cidade || !moradia || !experiencia) {
+        showToast('âš ï¸ Preencha todos os campos obrigatÃ³rios!');
+        return;
+      }
+
+      const nomeDoGato = modalGatoNome.textContent;
+
+      sucessoTexto.textContent = `Obrigada, ${nome}! Seu interesse em adotar o(a) ${nomeDoGato} foi registrado com sucesso.`;
+
+      formAdocao.style.display = 'none';
+      modalSucesso.style.display = 'flex';
+    });
+  }
 
 });
