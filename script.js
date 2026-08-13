@@ -1,235 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. DADOS DO CARDÁPIO (MENU DATA)
-  const menuData = {
-    cafes: [
-      {
-        name: 'Espresso Neko',
-        description: 'Espresso encorpado e aromático.',
-        price: 'R$ 8,50',
-        badge: null,
-        icon: '☕'
-      },
-      {
-        name: 'Latte Neko',
-        description: 'Leite vaporizado com espresso e arte de patinha.',
-        price: 'R$ 14,90',
-        badge: 'Mais Pedido',
-        icon: '🥛'
-      },
-      {
-        name: 'Cappuccino Sakura',
-        description: 'Cappuccino com toque de flor de cerejeira.',
-        price: 'R$ 15,90',
-        badge: null,
-        icon: '🌸'
-      },
-      {
-        name: 'Mocha Matcha',
-        description: 'Chocolate branco, matcha e espresso.',
-        price: 'R$ 16,90',
-        badge: null,
-        icon: '🍵'
-      },
-      {
-        name: 'Cold Brew Yuzu',
-        description: 'Café gelado com toque cítrico de yuzu.',
-        price: 'R$ 14,50',
-        badge: null,
-        icon: '🧊'
-      }
-    ],
-    bebidas: [
-      {
-        name: 'Chá Verde Sencha',
-        description: 'Chá verde tradicional japonês refrescante.',
-        price: 'R$ 9,90',
-        badge: null,
-        icon: '🍵'
-      },
-      {
-        name: 'Pink Lemonade Sakura',
-        description: 'Limonada artesanal com xarope de flor de cerejeira.',
-        price: 'R$ 12,90',
-        badge: 'Mais Pedido',
-        icon: '🌸'
-      },
-      {
-        name: 'Soda Italiana Maçã Verde',
-        description: 'Xarope de maçã verde, água com gás e gelo.',
-        price: 'R$ 11,50',
-        badge: null,
-        icon: '🍏'
-      },
-      {
-        name: 'Chocolate Quente Cremoso',
-        description: 'Chocolate nobre derretido com chantilly.',
-        price: 'R$ 13,90',
-        badge: null,
-        icon: '🍫'
-      }
-    ],
-    doces: [
-      {
-        name: 'Mochi de Morango',
-        description: 'Bolinho de arroz tradicional recheado com morango e anko.',
-        price: 'R$ 10,00',
-        badge: 'Mais Pedido',
-        icon: '🍓'
-      },
-      {
-        name: 'Cheesecake Sakura',
-        description: 'Cheesecake leve com geleia artesanal de cereja.',
-        price: 'R$ 16,50',
-        badge: null,
-        icon: '🍰'
-      },
-      {
-        name: 'Taiyaki de Chocolate',
-        description: 'Wafer em formato de peixe recheado com chocolate quente.',
-        price: 'R$ 12,00',
-        badge: null,
-        icon: '🐟'
-      },
-      {
-        name: 'Cookie Patinha de Gato',
-        description: 'Cookie crocante por fora e macio com gotas de chocolate.',
-        price: 'R$ 7,50',
-        badge: null,
-        icon: '🐾'
-      }
-    ],
-    salgados: [
-      {
-        name: 'Croissant de Queijo e Presunto',
-        description: 'Croissant folhado francês assado na hora.',
-        price: 'R$ 13,50',
-        badge: 'Mais Pedido',
-        icon: '🥐'
-      },
-      {
-        name: 'Quiche de Alho-Poró',
-        description: 'Quiche individual com massa amanteigada.',
-        price: 'R$ 14,00',
-        badge: null,
-        icon: '🥧'
-      },
-      {
-        name: 'Pão de Queijo Especial',
-        description: 'Pão de queijo quentinho com queijo da canastra.',
-        price: 'R$ 6,00',
-        badge: null,
-        icon: '🧀'
-      },
-      {
-        name: 'Sanduíche Natural Avocado & Ovo',
-        description: 'Pão artesanal, pasta de avocado, ovo poché e brotos.',
-        price: 'R$ 18,90',
-        badge: null,
-        icon: '🥪'
-      }
-    ],
-    combos: [
-      {
-        name: 'Combo Neko Simples',
-        description: '1 Espresso Neko + 1 Cookie Patinha de Gato.',
-        price: 'R$ 14,50',
-        badge: null,
-        icon: '☕'
-      },
-      {
-        name: 'Combo Tarde no Café',
-        description: '1 Latte Neko + 1 Mochi de Morango.',
-        price: 'R$ 22,90',
-        badge: 'Mais Pedido',
-        icon: '🐾'
-      },
-      {
-        name: 'Combo Brunch Completo',
-        description: '1 Cappuccino Sakura + 1 Croissant + 1 Cheesecake.',
-        price: 'R$ 41,00',
-        badge: null,
-        icon: '✨'
-      }
-    ]
-  };
+  // DADOS DO CARDÁPIO E GATOS
+  let menuData = {};
+  let gatosData = [];
 
-  const gatosData = [
-    {
-      nome: 'Zilu',
-      idade: '10 anos',
-      icone: './assets/img/zilu.jpeg',
-      tags: ['Brincalhão', 'Carinhoso', 'Sociável'],
-      descricao: 'Zilu é uma gatinha preto com branco cheia de energia! Adora brincar com bolinhas e fica feliz quando tem companhia por perto.'
-    },
-    {
-      nome: 'Malu',
-      idade: '4 anos',
-      icone: './assets/img/malu.jpeg',
-      tags: ['Calmo', 'Carinhoso', 'Independente'],
-      descricao: 'Malu é uma gatinha rajada e delicada. Ela gosta de lugares tranquilos, de cochilar no sol e de receber carinho com calma.'
-    },
-    {
-      nome: 'Lilo',
-      idade: '6 meses',
-      icone: './assets/img/lilo.jpeg',
-      tags: ['Brincalhão', 'Curioso', 'Sociável'],
-      descricao: 'Lilo é a mais novo do grupo e tem curiosidade por tudo! Bota o nariz em tudo e faz amizade com qualquer um rapidinho.'
-    },
-    {
-      nome: 'Pérola',
-      idade: '1 anos',
-      icone: './assets/img/perola.jpeg',
-      tags: ['Independente', 'Calmo', 'Curioso'],
-      descricao: 'Pérola é uma gatinha preta com olhos dourados, muito observadora. Prefere seu espaço, mas quando escolhe um dono, é para sempre.'
-    },
-    {
-      nome: 'Tito',
-      idade: '5 anos',
-      icone: './assets/img/tito.jpeg',
-      tags: ['Carinhoso', 'Calmo', 'Sociável'],
-      descricao: 'Tito é a mais experiente da turma. Ama ficar no colo, ronronar baixinho e é ótima companhia para quem vive sozinho.'
-    },
-    {
-      nome: 'Leon',
-      idade: '2 anos',
-      icone: './assets/img/leon.jpeg',
-      tags: ['Brincalhão', 'Curioso', 'Independente'],
-      descricao: 'Leon é uma gata tricolor muito esperta. Gosta de escalar prateleiras, explorar cantinhos e inventar moda pela casa toda.'
-    },
-    {
-      nome: 'Lilica',
-      idade: '3 anos',
-      icone: './assets/img/lilica.jpeg',
-      tags: ['Carinhoso', 'Sociável', 'Brincalhão'],
-      descricao: 'Lilica é uma gatinha que ama companhia. Se relaciona bem com crianças e outros animais, ideal para famílias.'
-    },
-    {
-      nome: 'Olaf',
-      idade: '4 anos',
-      icone: './assets/img/olaf.jpeg',
-      tags: ['Curioso', 'Brincalhão', 'Sociável'],
-      descricao: 'Olaf é fofo e está aprendendo tudo! Super ativo, afetivo e pronto para crescer com uma família cheia de amor.'
+  async function carregarDados() {
+    try {
+      const [menuRes, gatosRes] = await Promise.all([
+        fetch('./data/menu.json'),
+        fetch('./data/gatos.json')
+      ]);
+
+      if (!menuRes.ok || !gatosRes.ok) {
+        throw new Error('Falha ao carregar os dados JSON.');
+      }
+
+      menuData = await menuRes.json();
+      gatosData = await gatosRes.json();
+
+      renderMenuItems('cafes');
+      renderGatos();
+    } catch (error) {
+      console.error('Erro ao carregar dados:', error);
     }
-  ];
+  }
 
-  // 2. ELEMENTOS DOM
+  carregarDados();
+
+
+  // ELEMENTOS DOM
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('.tab-section');
   const menuItemList = document.getElementById('menuItemList');
   const subtabButtons = document.querySelectorAll('.subtab-btn');
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const navMenu = document.getElementById('navMenu');
-  const toast = document.getElementById('toast');
-  const toastMessage = document.getElementById('toastMessage');
 
-  // Botões de Ação
   const btnVerCardapioHero = document.getElementById('btnVerCardapioHero');
   const btnConhecaGatosHero = document.getElementById('btnConhecaGatosHero');
   const btnAdoteHeader = document.getElementById('btnAdoteHeader');
   const btnVoltarInicio = document.getElementById('btnVoltarInicio');
   const brandLogo = document.getElementById('brandLogo');
 
-  // Placeholders
   const placeholderTitle = document.getElementById('placeholderTitle');
   const placeholderText = document.getElementById('placeholderText');
 
@@ -247,19 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const sucessoTexto = document.getElementById('sucessoTexto');
   const btnFecharSucesso = document.getElementById('btnFecharSucesso');
 
-  // 3. TOAST NOTIFICATION UTILITY
-  let toastTimeout;
-  function showToast(message) {
-    clearTimeout(toastTimeout);
-    toastMessage.textContent = message;
-    toast.classList.add('show');
-
-    toastTimeout = setTimeout(() => {
-      toast.classList.remove('show');
-    }, 3200);
-  }
-
-  // 4. SPA NAVEGAÇÃO ENTRE GUIAS PRINCIPAIS
+  // NAVEGAÇÃO ENTRE GUIAS
   const sectionTitles = {
     'sobre-contato': 'Sobre & Contato',
     gatos: 'Gatos para Adoção'
@@ -271,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function switchTab(tabId) {
-    // 1. Atualizar links da barra de navegação (cor e sublinhado)
     navLinks.forEach(link => {
       if (link.getAttribute('data-tab') === tabId) {
         link.classList.add('active');
@@ -280,14 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 2. Fechar menu hambúrguer mobile se estiver aberto
     navMenu.classList.remove('active');
     hamburgerBtn.classList.remove('open');
 
-    // 3. Esconder todas as seções
     sections.forEach(section => section.classList.remove('active'));
 
-    // 4. Mostrar a seção correspondente
     if (tabId === 'inicio') {
       document.getElementById('sec-inicio').classList.add('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -309,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Event Listeners nos links da nav
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -318,20 +112,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Logo link direciona para o Início
   brandLogo.addEventListener('click', (e) => {
     e.preventDefault();
     switchTab('inicio');
   });
 
-  // Botão "Ver Cardápio" no Hero
   if (btnVerCardapioHero) {
     btnVerCardapioHero.addEventListener('click', () => {
       switchTab('cardapio');
     });
   }
 
-  // Botões não-funcionais que mostram feedback por toast ou placeholder
   if (btnConhecaGatosHero) {
     btnConhecaGatosHero.addEventListener('click', () => {
       switchTab('gatos');
@@ -350,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. RENDERIZAÇÃO E ALTERNÂNCIA DE SUB-ABAS DO CARDÁPIO
+  // RENDERIZAÇÃO E ALTERNÂNCIA DE SUB-ABAS DO CARDÁPIO
   function renderMenuItems(category) {
     const items = menuData[category] || [];
     menuItemList.innerHTML = '';
@@ -381,7 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Event Listeners das Sub-abas do Cardápio
   subtabButtons.forEach(button => {
     button.addEventListener('click', () => {
       subtabButtons.forEach(btn => btn.classList.remove('active'));
@@ -392,10 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Renderizar categoria inicial ("cafes")
-  renderMenuItems('cafes');
-
-  // 6. MENU HAMBÚRGUER (MOBILE)
+  // MENU HAMBÚRGUER (MOBILE)
   hamburgerBtn.addEventListener('click', () => {
     hamburgerBtn.classList.toggle('open');
     navMenu.classList.toggle('active');
@@ -432,11 +219,11 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
         <div class="gato-card-body">
           <p class="gato-nome">${gato.nome}</p>
-          <p class="gato-idade">📅 ${gato.idade}</p>
+          <p class="gato-idade"><i class="fa-solid fa-calendar-days"></i> ${gato.idade}</p>
           <div class="gato-tags">${tagsHTML}</div>
           <p class="gato-descricao-card">${gato.descricao}</p>
           <button class="btn btn-pink-solid gato-btn-adotar" data-nome="${gato.nome}" data-icone="${gato.icone}">
-            🐾 Quero Adotar
+            <i class="fa-solid fa-paw"></i> Quero Adotar
           </button>
         </div>
       `;
@@ -454,7 +241,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  renderGatos();
 
   if (gatoBusca) {
     gatoBusca.addEventListener('input', () => {
@@ -502,6 +288,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const inputTelefone = document.getElementById('inputTelefone');
+
+  if (inputTelefone) {
+    inputTelefone.addEventListener('input', (e) => {
+      let digits = e.target.value.replace(/\D/g, '');
+      if (digits.length > 11) {
+        digits = digits.slice(0, 11);
+      }
+
+      if (digits.length === 0) {
+        e.target.value = '';
+      } else if (digits.length <= 2) {
+        e.target.value = `(${digits}`;
+      } else if (digits.length <= 6) {
+        e.target.value = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+      } else if (digits.length <= 10) {
+        e.target.value = `(${digits.slice(0, 2)}) ${digits.slice(2, 6)}-${digits.slice(6)}`;
+      } else {
+        e.target.value = `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`;
+      }
+    });
+  }
+
   if (btnFecharSucesso) {
     btnFecharSucesso.addEventListener('click', fecharModal);
   }
@@ -518,7 +327,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const experiencia = document.getElementById('selectExperiencia').value;
 
       if (!nome || !email || !telefone || !cidade || !moradia || !experiencia) {
-        showToast('âš ï¸ Preencha todos os campos obrigatÃ³rios!');
+        alert('Preencha todos os campos obrigatórios!');
+        return;
+      }
+
+      const digitosTelefone = telefone.replace(/\D/g, '');
+      if (digitosTelefone.length < 10) {
+        alert('Por favor, digite um número de telefone/WhatsApp válido com DDD (mínimo 10 dígitos).');
         return;
       }
 

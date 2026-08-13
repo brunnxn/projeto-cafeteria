@@ -1,0 +1,152 @@
+{
+  "cafes": [
+    {
+      "name": "Espresso Neko",
+      "description": "Espresso encorpado e aromático.",
+      "price": "R$ 8,50",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-mug-hot\"></i>"
+    },
+    {
+      "name": "Latte Neko",
+      "description": "Leite vaporizado com espresso e arte de patinha.",
+      "price": "R$ 14,90",
+      "badge": "Mais Pedido",
+      "icon": "<i class=\"fa-solid fa-mug-saucer\"></i>"
+    },
+    {
+      "name": "Cappuccino Sakura",
+      "description": "Cappuccino com toque de flor de cerejeira.",
+      "price": "R$ 15,90",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-spa\"></i>"
+    },
+    {
+      "name": "Mocha Matcha",
+      "description": "Chocolate branco, matcha e espresso.",
+      "price": "R$ 16,90",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-leaf\"></i>"
+    },
+    {
+      "name": "Cold Brew Yuzu",
+      "description": "Café gelado com toque cítrico de yuzu.",
+      "price": "R$ 14,50",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-snowflake\"></i>"
+    }
+  ],
+  "bebidas": [
+    {
+      "name": "Chá Verde Sencha",
+      "description": "Chá verde tradicional japonês refrescante.",
+      "price": "R$ 9,90",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-leaf\"></i>"
+    },
+    {
+      "name": "Pink Lemonade Sakura",
+      "description": "Limonada artesanal com xarope de flor de cerejeira.",
+      "price": "R$ 12,90",
+      "badge": "Mais Pedido",
+      "icon": "<i class=\"fa-solid fa-lemon\"></i>"
+    },
+    {
+      "name": "Soda Italiana Maçã Verde",
+      "description": "Xarope de maçã verde, água com gás e gelo.",
+      "price": "R$ 11,50",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-apple-whole\"></i>"
+    },
+    {
+      "name": "Chocolate Quente Cremoso",
+      "description": "Chocolate nobre derretido com chantilly.",
+      "price": "R$ 13,90",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-mug-hot\"></i>"
+    }
+  ],
+  "doces": [
+    {
+      "name": "Mochi de Morango",
+      "description": "Bolinho de arroz tradicional recheado com morango e anko.",
+      "price": "R$ 10,00",
+      "badge": "Mais Pedido",
+      "icon": "<i class=\"fa-solid fa-cookie\"></i>"
+    },
+    {
+      "name": "Cheesecake Sakura",
+      "description": "Cheesecake leve com geleia artesanal de cereja.",
+      "price": "R$ 16,50",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-cake-candles\"></i>"
+    },
+    {
+      "name": "Taiyaki de Chocolate",
+      "description": "Wafer em formato de peixe recheado com chocolate quente.",
+      "price": "R$ 12,00",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-fish\"></i>"
+    },
+    {
+      "name": "Cookie Patinha de Gato",
+      "description": "Cookie crocante por fora e macio com gotas de chocolate.",
+      "price": "R$ 7,50",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-paw\"></i>"
+    }
+  ],
+  "salgados": [
+    {
+      "name": "Croissant de Queijo e Presunto",
+      "description": "Croissant folhado francês assado na hora.",
+      "price": "R$ 13,50",
+      "badge": "Mais Pedido",
+      "icon": "<i class=\"fa-solid fa-bread-slice\"></i>"
+    },
+    {
+      "name": "Quiche de Alho-Poró",
+      "description": "Quiche individual com massa amanteigada.",
+      "price": "R$ 14,00",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-utensils\"></i>"
+    },
+    {
+      "name": "Pão de Queijo Especial",
+      "description": "Pão de queijo quentinho com queijo da canastra.",
+      "price": "R$ 6,00",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-cheese\"></i>"
+    },
+    {
+      "name": "Sanduíche Natural Avocado & Ovo",
+      "description": "Pão artesanal, pasta de avocado, ovo poché e brotos.",
+      "price": "R$ 18,90",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-utensils\"></i>"
+    }
+  ],
+  "combos": [
+    {
+      "name": "Combo Neko Simples",
+      "description": "1 Espresso Neko + 1 Cookie Patinha de Gato.",
+      "price": "R$ 14,50",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-mug-hot\"></i>"
+    },
+    {
+      "name": "Combo Tarde no Café",
+      "description": "1 Latte Neko + 1 Mochi de Morango.",
+      "price": "R$ 22,90",
+      "badge": "Mais Pedido",
+      "icon": "<i class=\"fa-solid fa-paw\"></i>"
+    },
+    {
+      "name": "Combo Brunch Completo",
+      "description": "1 Cappuccino Sakura + 1 Croissant + 1 Cheesecake.",
+      "price": "R$ 41,00",
+      "badge": null,
+      "icon": "<i class=\"fa-solid fa-wand-magic-sparkles\"></i>"
+    }
+  ]
+}
