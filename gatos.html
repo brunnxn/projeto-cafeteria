@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neko Café - Gatos para Adoção</title>
+  <meta name="description" content="Neko Café - Conheça nossos gatinhos resgatados disponíveis para adoção responsável e encontre seu novo melhor amigo.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      
+      <a href="index.html" class="logo" id="brandLogo">
+        <div class="logo-icon-circle">
+          <img src="assets/img/logo_centro.png" alt="Neko Café Logo" class="logo-img">
+        </div>
+        <img src="assets/img/logo_titulo.png" alt="Neko Café" class="logo-title-img">
+      </a>
+
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li>
+            <a href="index.html" class="nav-link">Início</a>
+          </li>
+          <li>
+            <a href="cardapio.html" class="nav-link">Cardápio</a>
+          </li>
+          <li>
+            <a href="gatos.html" class="nav-link active">Gatos para Adoção</a>
+          </li>
+          <li>
+            <a href="sobre.html" class="nav-link">Sobre & Contato</a>
+          </li>
+          <li class="nav-mobile-cta">
+            <a href="gatos.html" class="btn btn-pill-pink btn-mobile-nav">
+              <span class="btn-icon"><i class="fa-solid fa-paw"></i></span> Adote um Gato
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="gatos.html" class="btn btn-pill-pink" id="btnAdoteHeader">
+          <span class="btn-icon"><i class="fa-solid fa-paw"></i></span> Adote um Gato
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <main class="main-content">
+
+    <section id="sec-gatos" class="tab-section active">
+      <div class="gatos-container">
+
+        <div class="gatos-header">
+          <div class="jp-tag">
+            <span class="jp-icon"><i class="fa-solid fa-paw"></i></span>
+            <span class="pt-text">Adoção</span>
+          </div>
+          <h2 class="gatos-title">Encontre seu novo melhor amigo</h2>
+          <p class="gatos-descricao">
+            Todos os nossos gatinhos foram resgatados das ruas e estão prontos para encher
+            seu lar de ronronados. Conheça cada um deles e, quem sabe, leve um amigo para casa!
+          </p>
+        </div>
+
+        <div class="gatos-filtros">
+          <div class="busca-wrapper">
+            <span class="busca-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input
+              type="text"
+              id="gatoBusca"
+              class="busca-input"
+              placeholder="Buscar por nome..."
+              aria-label="Buscar gato pelo nome"
+            />
+          </div>
+
+          <div class="filtros-personalidade" id="filtrosPersonalidade">
+            <button class="filtro-btn active" data-filtro="todos" id="filtroTodos">Todos</button>
+            <button class="filtro-btn" data-filtro="Brincalhão" id="filtroBrencalhao">Brincalhão</button>
+            <button class="filtro-btn" data-filtro="Calmo" id="filtroCalmo">Calmo</button>
+            <button class="filtro-btn" data-filtro="Carinhoso" id="filtroCarinhoso">Carinhoso</button>
+            <button class="filtro-btn" data-filtro="Independente" id="filtroIndependente">Independente</button>
+            <button class="filtro-btn" data-filtro="Sociável" id="filtroSociavel">Sociável</button>
+            <button class="filtro-btn" data-filtro="Curioso" id="filtroCurioso">Curioso</button>
+          </div>
+        </div>
+
+        <div class="gatos-grid" id="gatosGrid"></div>
+
+        <p class="gatos-sem-resultado" id="gatosSemResultado" style="display: none;">
+          Nenhum gatinho encontrado com esse filtro. Tente outro! <i class="fa-solid fa-cat"></i>
+        </p>
+
+      </div>
+    </section>
+
+    <!-- Modal de Adoção -->
+    <div class="modal-overlay" id="modalAdocao" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+      <div class="modal-box">
+
+        <button class="modal-fechar" id="btnFecharModal" aria-label="Fechar modal">✕</button>
+
+        <div class="modal-cabecalho" id="modalCabecalho">
+          <div class="modal-gato-foto" id="modalGatoFoto"><i class="fa-solid fa-cat"></i></div>
+          <div>
+            <p class="modal-gato-label">Você quer adotar:</p>
+            <p class="modal-gato-nome" id="modalGatoNome">Nome do Gato</p>
+          </div>
+        </div>
+
+        <form class="modal-form" id="formAdocao" novalidate>
+          <div class="form-grupo">
+            <label class="form-label" for="inputNome">Nome completo *</label>
+            <input type="text" id="inputNome" class="form-input" placeholder="Seu nome completo" required />
+          </div>
+
+          <div class="form-grupo">
+            <label class="form-label" for="inputEmail">E-mail *</label>
+            <input type="email" id="inputEmail" class="form-input" placeholder="seu@email.com" required />
+          </div>
+
+          <div class="form-linha-dupla">
+            <div class="form-grupo">
+              <label class="form-label" for="inputTelefone">Telefone / WhatsApp *</label>
+              <input type="tel" id="inputTelefone" class="form-input" placeholder="(00) 00000-0000" maxlength="15" required />
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="inputCidade">Cidade - UF *</label>
+              <input type="text" id="inputCidade" class="form-input" placeholder="Ex: Paulo Afonso - BA" required />
+            </div>
+          </div>
+
+          <div class="form-linha-dupla">
+            <div class="form-grupo">
+              <label class="form-label" for="selectMoradia">Tipo de moradia *</label>
+              <select id="selectMoradia" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option value="casa-quintal">Casa com quintal</option>
+                <option value="casa-sem-quintal">Casa sem quintal</option>
+                <option value="apartamento">Apartamento</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-grupo">
+              <label class="form-label" for="selectExperiencia">Já teve gatos antes? *</label>
+              <select id="selectExperiencia" class="form-select" required>
+                <option value="">Selecione...</option>
+                <option value="sim-atual">Sim, tenho atualmente</option>
+                <option value="sim-tive">Sim, já tive</option>
+                <option value="nao">Não, será o primeiro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-grupo">
+            <label class="form-label" for="textareaMotivo">Por que quer adotar este gatinho? (opcional)</label>
+            <textarea
+              id="textareaMotivo"
+              class="form-textarea"
+              placeholder="Conte um pouco sobre o motivo e como seria a rotina do gatinho na sua casa..."
+              rows="3"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-pink-solid" id="btnEnviarFormulario" style="width: 100%;">
+            <i class="fa-solid fa-paw"></i> Enviar interesse em adoção
+          </button>
+        </form>
+
+        <div class="modal-sucesso" id="modalSucesso" style="display: none;">
+          <span class="sucesso-emoji"><i class="fa-solid fa-circle-check"></i></span>
+          <h3 class="sucesso-titulo">Que alegria!</h3>
+          <p class="sucesso-texto" id="sucessoTexto"></p>
+          <p class="sucesso-subtext">Nossa equipe entrará em contato em breve para os próximos passos da adoção.</p>
+          <button class="btn btn-pink-solid" id="btnFecharSucesso"><i class="fa-solid fa-heart"></i> Fechar</button>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/img/logo_titulo.png" alt="Neko Café" class="footer-logo-img">
+      </div>
+      <p class="footer-copyright">
+        © 2026 Neko Café. Todos os direitos reservados. Feito com amor e carinho por gatos.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

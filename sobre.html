@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neko Café - Sobre & Contato</title>
+  <meta name="description" content="Neko Café - Conheça nossa história, motivação, objetivos e informações de contato do primeiro Neko Café de Paulo Afonso - BA.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-container">
+      
+      <a href="index.html" class="logo" id="brandLogo">
+        <div class="logo-icon-circle">
+          <img src="assets/img/logo_centro.png" alt="Neko Café Logo" class="logo-img">
+        </div>
+        <img src="assets/img/logo_titulo.png" alt="Neko Café" class="logo-title-img">
+      </a>
+
+      <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menu de navegação" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav-menu" id="navMenu">
+        <ul class="nav-list">
+          <li>
+            <a href="index.html" class="nav-link">Início</a>
+          </li>
+          <li>
+            <a href="cardapio.html" class="nav-link">Cardápio</a>
+          </li>
+          <li>
+            <a href="gatos.html" class="nav-link">Gatos para Adoção</a>
+          </li>
+          <li>
+            <a href="sobre.html" class="nav-link active">Sobre & Contato</a>
+          </li>
+          <li class="nav-mobile-cta">
+            <a href="gatos.html" class="btn btn-pill-pink btn-mobile-nav">
+              <span class="btn-icon"><i class="fa-solid fa-paw"></i></span> Adote um Gato
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a href="gatos.html" class="btn btn-pill-pink" id="btnAdoteHeader">
+          <span class="btn-icon"><i class="fa-solid fa-paw"></i></span> Adote um Gato
+        </a>
+      </div>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <main class="main-content">
+
+    <section id="sec-sobre" class="tab-section active">
+      <div class="sobre-container">
+
+        <div class="sobre-header">
+          <div class="jp-tag">
+            <span class="jp-icon"><i class="fa-solid fa-cat"></i></span>
+            <span class="pt-text">Sobre Nós</span>
+          </div>
+          <h2 class="sobre-title">Conheça o Neko Café</h2>
+        </div>
+
+        <div class="sobre-grid">
+
+          <div class="sobre-coluna-esq">
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">O que é o Neko Café? <i class="fa-solid fa-mug-hot"></i></h3>
+              <p class="sobre-card-texto">
+                O Neko Café é uma cafeteria temática que combina a experiência gastronômica ao
+                contato carinhoso com gatos resgatados. Em nosso espaço, você encontra cafés
+                especiais, doces artesanais e salgados frescos — tudo isso enquanto passa um
+                tempo de qualidade com os felinos que aguardam um novo lar.
+              </p>
+              <p class="sobre-card-texto">
+                O site foi desenvolvido como projeto avaliativo da disciplina de Tecnologias Web
+                (IFBA - Campus Paulo Afonso), por alunos de Ciência da Computação no semestre 2026.1.
+              </p>
+            </div>
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">Nossa Motivação <i class="fa-solid fa-spa"></i></h3>
+              <p class="sobre-card-texto">
+                O projeto foi inspirado nos <em>cat cafés</em>, estabelecimentos populares no Japão
+                e em várias partes do mundo que unem gastronomia ao convívio com gatos. Além de
+                proporcionar um ambiente acolhedor, esses espaços ajudam a divulgar animais que
+                buscam um novo lar.
+              </p>
+              <p class="sobre-card-texto">
+                A proposta é usar a tecnologia para apresentar a cafeteria e incentivar a adoção
+                responsável, reunindo informações sobre produtos e animais em uma interface
+                simples, organizada e agradável.
+              </p>
+            </div>
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">Público-Alvo <i class="fa-solid fa-user-group"></i></h3>
+              <div class="publico-tags">
+                <span class="publico-tag"><i class="fa-solid fa-heart"></i> Amantes de gatos</span>
+                <span class="publico-tag"><i class="fa-solid fa-house"></i> Interessados em adoção</span>
+                <span class="publico-tag"><i class="fa-solid fa-mug-hot"></i> Clientes da cafeteria</span>
+                <span class="publico-tag"><i class="fa-solid fa-users"></i> Jovens e adultos</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="sobre-coluna-dir">
+
+            <div class="sobre-card">
+              <h3 class="sobre-card-titulo">Nossos Objetivos <i class="fa-solid fa-bullseye"></i></h3>
+              <p class="sobre-card-subtitulo">Objetivo Geral</p>
+              <p class="sobre-card-texto">
+                Desenvolver uma interface web para divulgação de uma cafeteria temática
+                voltada à adoção de gatos.
+              </p>
+              <p class="sobre-card-subtitulo">Objetivos Específicos</p>
+              <ul class="sobre-lista">
+                <li><i class="fa-solid fa-clipboard-list"></i> Apresentar o cardápio completo da cafeteria</li>
+                <li><i class="fa-solid fa-cat"></i> Divulgar os gatos disponíveis para adoção</li>
+                <li><i class="fa-solid fa-circle-info"></i> Fornecer informações sobre o estabelecimento</li>
+                <li><i class="fa-solid fa-compass"></i> Criar uma experiência de navegação intuitiva</li>
+                <li><i class="fa-solid fa-laptop-code"></i> Aplicar conceitos de front-end e design responsivo</li>
+              </ul>
+            </div>
+
+            <div class="sobre-card contato-card">
+              <h3 class="sobre-card-titulo">Fale Conosco <i class="fa-solid fa-envelope-open-text"></i></h3>
+              <ul class="contato-lista">
+                <li class="contato-item">
+                  <span class="contato-icone"><i class="fa-solid fa-location-dot"></i></span>
+                  <div>
+                    <strong>Endereço</strong>
+                    <span>Rua das Cerejeiras, 42 — Centro, Paulo Afonso - BA</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone"><i class="fa-solid fa-envelope"></i></span>
+                  <div>
+                    <strong>E-mail</strong>
+                    <span>contato@nekocafe.com.br</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone"><i class="fa-brands fa-whatsapp"></i></span>
+                  <div>
+                    <strong>WhatsApp</strong>
+                    <span>(75) 99999-0042</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone"><i class="fa-solid fa-clock"></i></span>
+                  <div>
+                    <strong>Horário</strong>
+                    <span>Terça a domingo, das 10h às 20h</span>
+                  </div>
+                </li>
+                <li class="contato-item">
+                  <span class="contato-icone"><i class="fa-brands fa-instagram"></i></span>
+                  <div>
+                    <strong>Instagram</strong>
+                    <span>@nekocafe.oficial</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="sobre-rodape">
+          <p>Criado com <i class="fa-solid fa-heart" style="color: #dd6f92;"></i> por <strong>Bruno Leandro Gama da Silva</strong> e <strong>Lorena Rachel Santos de Souza</strong></p>
+          <p class="sobre-rodape-sub">Ciência da Computação • IFBA - Campus Paulo Afonso • 2026.1</p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <img src="assets/img/logo_titulo.png" alt="Neko Café" class="footer-logo-img">
+      </div>
+      <p class="footer-copyright">
+        © 2026 Neko Café. Todos os direitos reservados. Feito com amor e carinho por gatos.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

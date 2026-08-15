@@ -3,46 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
   let menuData = {};
   let gatosData = [];
 
-  async function carregarDados() {
-    try {
-      const [menuRes, gatosRes] = await Promise.all([
-        fetch('./data/menu.json'),
-        fetch('./data/gatos.json')
-      ]);
-
-      if (!menuRes.ok || !gatosRes.ok) {
-        throw new Error('Falha ao carregar os dados JSON.');
-      }
-
-      menuData = await menuRes.json();
-      gatosData = await gatosRes.json();
-
-      renderMenuItems('cafes');
-      renderGatos();
-    } catch (error) {
-      console.error('Erro ao carregar dados:', error);
-    }
-  }
-
-  carregarDados();
-
-
   // ELEMENTOS DOM
-  const navLinks = document.querySelectorAll('.nav-link');
-  const sections = document.querySelectorAll('.tab-section');
-  const menuItemList = document.getElementById('menuItemList');
-  const subtabButtons = document.querySelectorAll('.subtab-btn');
   const hamburgerBtn = document.getElementById('hamburgerBtn');
   const navMenu = document.getElementById('navMenu');
 
-  const btnVerCardapioHero = document.getElementById('btnVerCardapioHero');
-  const btnConhecaGatosHero = document.getElementById('btnConhecaGatosHero');
-  const btnAdoteHeader = document.getElementById('btnAdoteHeader');
-  const btnVoltarInicio = document.getElementById('btnVoltarInicio');
-  const brandLogo = document.getElementById('brandLogo');
-
-  const placeholderTitle = document.getElementById('placeholderTitle');
-  const placeholderText = document.getElementById('placeholderText');
+  const menuItemList = document.getElementById('menuItemList');
+  const subtabButtons = document.querySelectorAll('.subtab-btn');
 
   const gatosGrid = document.getElementById('gatosGrid');
   const gatoBusca = document.getElementById('gatoBusca');
@@ -57,92 +23,96 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalSucesso = document.getElementById('modalSucesso');
   const sucessoTexto = document.getElementById('sucessoTexto');
   const btnFecharSucesso = document.getElementById('btnFecharSucesso');
+  const inputTelefone = document.getElementById('inputTelefone');
 
-  // NAVEGAÇÃO ENTRE GUIAS
-  const sectionTitles = {
-    'sobre-contato': 'Sobre & Contato',
-    gatos: 'Gatos para Adoção'
-  };
+  // MENU HAMBÚRGUER (MOBILE)
+  const navOverlay = document.getElementById('navOverlay');
 
-  const sectionDescriptions = {
-    'sobre-contato': 'Conheça a história do nosso café, nossa missão com os animais e entre em contato conosco para agendar visitas ou tirar dúvidas!',
-    gatos: 'Em breve você poderá ver a galeria completa com fotos, nomes, idades e personalidades dos gatinhos resgatados!'
-  };
-
-  function switchTab(tabId) {
-    navLinks.forEach(link => {
-      if (link.getAttribute('data-tab') === tabId) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-
-    navMenu.classList.remove('active');
-    hamburgerBtn.classList.remove('open');
-
-    sections.forEach(section => section.classList.remove('active'));
-
-    if (tabId === 'inicio') {
-      document.getElementById('sec-inicio').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (tabId === 'cardapio') {
-      document.getElementById('sec-cardapio').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (tabId === 'gatos') {
-      document.getElementById('sec-gatos').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else if (tabId === 'sobre-contato') {
-      document.getElementById('sec-sobre').classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      const secPlaceholder = document.getElementById('sec-placeholder');
-      placeholderTitle.textContent = sectionTitles[tabId] || 'Sessão em Construção';
-      placeholderText.textContent = sectionDescriptions[tabId] || 'Esta funcionalidade estará disponível muito em breve!';
-      secPlaceholder.classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+  function fecharMenuMobile() {
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.remove('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+    }
+    if (navMenu) {
+      navMenu.classList.remove('active');
+    }
+    if (navOverlay) {
+      navOverlay.classList.remove('active');
     }
   }
 
+  function abrirMenuMobile() {
+    if (hamburgerBtn) {
+      hamburgerBtn.classList.add('open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+    }
+    if (navMenu) {
+      navMenu.classList.add('active');
+    }
+    if (navOverlay) {
+      navOverlay.classList.add('active');
+    }
+  }
+
+  if (hamburgerBtn && navMenu) {
+    hamburgerBtn.addEventListener('click', () => {
+      const estaAberto = hamburgerBtn.classList.contains('open');
+      if (estaAberto) {
+        fecharMenuMobile();
+      } else {
+        abrirMenuMobile();
+      }
+    });
+  }
+
+  if (navOverlay) {
+    navOverlay.addEventListener('click', fecharMenuMobile);
+  }
+
+  const navLinks = document.querySelectorAll('.nav-link, .btn-mobile-nav');
   navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-      const tabId = link.getAttribute('data-tab');
-      switchTab(tabId);
-    });
+    link.addEventListener('click', fecharMenuMobile);
   });
 
-  brandLogo.addEventListener('click', (e) => {
-    e.preventDefault();
-    switchTab('inicio');
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+      fecharMenuMobile();
+    }
   });
 
-  if (btnVerCardapioHero) {
-    btnVerCardapioHero.addEventListener('click', () => {
-      switchTab('cardapio');
-    });
+  // CARREGAMENTO ASSÍNCRONO DE DADOS
+  async function carregarDados() {
+    try {
+      const [menuRes, gatosRes] = await Promise.all([
+        fetch('./data/menu.json'),
+        fetch('./data/gatos.json')
+      ]);
+
+      if (!menuRes.ok || !gatosRes.ok) {
+        throw new Error('Falha ao carregar os dados JSON.');
+      }
+
+      menuData = await menuRes.json();
+      gatosData = await gatosRes.json();
+
+      if (menuItemList) {
+        renderMenuItems('cafes');
+      }
+
+      if (gatosGrid) {
+        renderGatos();
+      }
+    } catch (error) {
+      console.error('Erro ao carregar dados:', error);
+    }
   }
 
-  if (btnConhecaGatosHero) {
-    btnConhecaGatosHero.addEventListener('click', () => {
-      switchTab('gatos');
-    });
-  }
-
-  if (btnAdoteHeader) {
-    btnAdoteHeader.addEventListener('click', () => {
-      switchTab('gatos');
-    });
-  }
-
-  if (btnVoltarInicio) {
-    btnVoltarInicio.addEventListener('click', () => {
-      switchTab('inicio');
-    });
-  }
+  carregarDados();
 
   // RENDERIZAÇÃO E ALTERNÂNCIA DE SUB-ABAS DO CARDÁPIO
   function renderMenuItems(category) {
+    if (!menuItemList) return;
+
     const items = menuData[category] || [];
     menuItemList.innerHTML = '';
 
@@ -172,26 +142,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  subtabButtons.forEach(button => {
-    button.addEventListener('click', () => {
-      subtabButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+  if (subtabButtons.length > 0) {
+    subtabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        subtabButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
 
-      const category = button.getAttribute('data-category');
-      renderMenuItems(category);
+        const category = button.getAttribute('data-category');
+        renderMenuItems(category);
+      });
     });
-  });
+  }
 
-  // MENU HAMBÚRGUER (MOBILE)
-  hamburgerBtn.addEventListener('click', () => {
-    hamburgerBtn.classList.toggle('open');
-    navMenu.classList.toggle('active');
-  });
-
+  // RENDERIZAÇÃO E FILTRAGEM DE GATOS PARA ADOÇÃO
   let filtroAtivo = 'todos';
   let termoBusca = '';
 
   function renderGatos() {
+    if (!gatosGrid) return;
+
     gatosGrid.innerHTML = '';
 
     const gatosFiltrados = gatosData.filter(gato => {
@@ -200,10 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return temPersonalidade && temNome;
     });
 
-    if (gatosFiltrados.length === 0) {
-      gatosSemResultado.style.display = 'block';
-    } else {
-      gatosSemResultado.style.display = 'none';
+    if (gatosSemResultado) {
+      gatosSemResultado.style.display = gatosFiltrados.length === 0 ? 'block' : 'none';
     }
 
     gatosFiltrados.forEach(gato => {
@@ -241,7 +208,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   if (gatoBusca) {
     gatoBusca.addEventListener('input', () => {
       termoBusca = gatoBusca.value;
@@ -249,29 +215,39 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  filtroButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filtroButtons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      filtroAtivo = btn.getAttribute('data-filtro');
-      renderGatos();
+  if (filtroButtons.length > 0) {
+    filtroButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filtroButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filtroAtivo = btn.getAttribute('data-filtro');
+        renderGatos();
+      });
     });
-  });
+  }
 
+  // MODAL DE ADOÇÃO
   function abrirModal(nomeGato, iconeGato) {
-    modalGatoNome.textContent = nomeGato;
-    modalGatoFoto.innerHTML = `<img src="${iconeGato}" alt="${nomeGato}" />`;
+    if (!modalAdocao) return;
 
-    formAdocao.style.display = 'flex';
-    modalSucesso.style.display = 'none';
+    if (modalGatoNome) modalGatoNome.textContent = nomeGato;
+    if (modalGatoFoto) modalGatoFoto.innerHTML = `<img src="${iconeGato}" alt="${nomeGato}" />`;
 
-    formAdocao.reset();
+    if (formAdocao) {
+      formAdocao.style.display = 'flex';
+      formAdocao.reset();
+    }
+
+    if (modalSucesso) {
+      modalSucesso.style.display = 'none';
+    }
 
     modalAdocao.classList.add('aberto');
-    document.body.style.overflow = 'hidden'; 
+    document.body.style.overflow = 'hidden';
   }
 
   function fecharModal() {
+    if (!modalAdocao) return;
     modalAdocao.classList.remove('aberto');
     document.body.style.overflow = '';
   }
@@ -288,8 +264,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const inputTelefone = document.getElementById('inputTelefone');
+  if (btnFecharSucesso) {
+    btnFecharSucesso.addEventListener('click', fecharModal);
+  }
 
+  // MÁSCARA E RESTRIÇÃO DE TELEFONE
   if (inputTelefone) {
     inputTelefone.addEventListener('input', (e) => {
       let digits = e.target.value.replace(/\D/g, '');
@@ -311,20 +290,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (btnFecharSucesso) {
-    btnFecharSucesso.addEventListener('click', fecharModal);
-  }
-
+  // SUBMISSÃO DO FORMULÁRIO DE ADOÇÃO
   if (formAdocao) {
     formAdocao.addEventListener('submit', (e) => {
-      e.preventDefault(); 
+      e.preventDefault();
 
-      const nome = document.getElementById('inputNome').value.trim();
-      const email = document.getElementById('inputEmail').value.trim();
-      const telefone = document.getElementById('inputTelefone').value.trim();
-      const cidade = document.getElementById('inputCidade').value.trim();
-      const moradia = document.getElementById('selectMoradia').value;
-      const experiencia = document.getElementById('selectExperiencia').value;
+      const nome = document.getElementById('inputNome')?.value.trim() || '';
+      const email = document.getElementById('inputEmail')?.value.trim() || '';
+      const telefone = document.getElementById('inputTelefone')?.value.trim() || '';
+      const cidade = document.getElementById('inputCidade')?.value.trim() || '';
+      const moradia = document.getElementById('selectMoradia')?.value || '';
+      const experiencia = document.getElementById('selectExperiencia')?.value || '';
 
       if (!nome || !email || !telefone || !cidade || !moradia || !experiencia) {
         alert('Preencha todos os campos obrigatórios!');
@@ -337,13 +313,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const nomeDoGato = modalGatoNome.textContent;
+      const nomeDoGato = modalGatoNome ? modalGatoNome.textContent : 'gatinho';
 
-      sucessoTexto.textContent = `Obrigada, ${nome}! Seu interesse em adotar o(a) ${nomeDoGato} foi registrado com sucesso.`;
+      if (sucessoTexto) {
+        sucessoTexto.textContent = `Obrigada, ${nome}! Seu interesse em adotar o(a) ${nomeDoGato} foi registrado com sucesso.`;
+      }
 
       formAdocao.style.display = 'none';
-      modalSucesso.style.display = 'flex';
+      if (modalSucesso) {
+        modalSucesso.style.display = 'flex';
+      }
     });
   }
-
 });

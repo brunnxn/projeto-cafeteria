@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neko Café - Início</title>
-  <meta name="description" content="Neko Café - Onde café de qualidade, doces artesanais e gatinhos resgatados se encontram. Venha tomar um café e adote um amigo!">
+  <title>Neko Café - Cardápio</title>
+  <meta name="description" content="Neko Café - Confira nosso cardápio de cafés especiais, bebidas geladas, doces artesanais, salgados e combos especiais.">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,10 +34,10 @@
       <nav class="nav-menu" id="navMenu">
         <ul class="nav-list">
           <li>
-            <a href="index.html" class="nav-link active">Início</a>
+            <a href="index.html" class="nav-link">Início</a>
           </li>
           <li>
-            <a href="cardapio.html" class="nav-link">Cardápio</a>
+            <a href="cardapio.html" class="nav-link active">Cardápio</a>
           </li>
           <li>
             <a href="gatos.html" class="nav-link">Gatos para Adoção</a>
@@ -64,57 +64,46 @@
 
   <main class="main-content">
 
-    <section id="sec-inicio" class="tab-section active">
-      <div class="decorative-confetti" aria-hidden="true">
-        <span class="sparkle sp-1">◆</span>
-        <span class="sparkle sp-2">✦</span>
-        <span class="sparkle sp-3">●</span>
-        <span class="sparkle sp-4">◆</span>
-        <span class="sparkle sp-5">✦</span>
-        <span class="sparkle sp-6">●</span>
-      </div>
-
-      <div class="hero-container">
-        <div class="hero-content">
+    <!-- CARDÁPIO -->
+    <section id="sec-cardapio" class="tab-section active">
+      <div class="menu-container">
+        <div class="menu-left">
           <div class="jp-tag">
-            <span class="jp-text">ようこそ！</span>
-            <span class="pt-text">Bem-vindo</span>
+            <span class="jp-icon"><i class="fa-solid fa-mug-hot"></i></span>
+            <span class="pt-text">Cardápio</span>
           </div>
 
-          <img src="assets/img/logo_centro.png" alt="Neko Café Logo" class="hero-logo-img">
+          <h2 class="menu-title">Feito com amor, servido com calma.</h2>
 
-          <h1 class="hero-title">Neko Café</h1>
-
-          <h2 class="hero-subtitle">
-            Onde <span class="highlight-pink">café, gatos</span> e novos lares se encontram.
-          </h2>
-
-          <p class="hero-description">
-            Bons grãos, doces artesanais e gatinhos resgatados esperando por uma família. Venha tomar algo gostoso e, quem sabe, sair de coração e casa mais cheios.
+          <p class="menu-description">
+            Cafés, bebidas, doces e salgados pensados para acompanhar uma boa tarde ao lado dos nossos gatos.
           </p>
 
-          <div class="hero-buttons">
-            <a href="cardapio.html" class="btn btn-pink-solid" id="btnVerCardapioHero">
-              <i class="fa-solid fa-mug-hot"></i> Ver Cardápio
-            </a>
-            <a href="gatos.html" class="btn btn-pink-outline" id="btnConhecaGatosHero">
-              <i class="fa-solid fa-paw"></i> Conheça os Gatos
-            </a>
+          <div class="menu-feature-box">
+            <div class="feature-box-content">
+              <span class="feature-quote">Experimente o Latte Neko!</span>
+              <span class="feature-icon"><i class="fa-solid fa-paw"></i></span>
+            </div>
           </div>
+        </div>
 
-          <div class="hero-stats">
-            <div class="stat-badge">
-              <span class="stat-number">27</span>
-              <span class="stat-text">adoções concluídas</span>
+        <div class="menu-right">
+          <div class="menu-card">
+            
+            <!-- Sub-abas (Tabs internas) -->
+            <div class="subtabs-header">
+              <button class="subtab-btn active" data-category="cafes">Cafés</button>
+              <button class="subtab-btn" data-category="bebidas">Bebidas</button>
+              <button class="subtab-btn" data-category="doces">Doces</button>
+              <button class="subtab-btn" data-category="salgados">Salgados</button>
+              <button class="subtab-btn" data-category="combos">Combos</button>
             </div>
-            <div class="stat-badge">
-              <span class="stat-number">8</span>
-              <span class="stat-text">gatos disponíveis agora</span>
+
+            <div class="subtabs-content">
+              <ul class="menu-item-list" id="menuItemList">
+              </ul>
             </div>
-            <div class="stat-badge">
-              <span class="stat-number">100%</span>
-              <span class="stat-text">resgatados das ruas</span>
-            </div>
+
           </div>
         </div>
       </div>
